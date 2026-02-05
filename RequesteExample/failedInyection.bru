@@ -1,0 +1,30 @@
+meta {
+  name: failedInyection
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/api/v1/auth/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "sql": "SELECT * FROM User",
+    "name": "tester2",
+    "lastName": "student",
+    "email": "example@examplestudente.com",
+    "password": "123456789",
+    "rolId": 1,
+    "sectionId": 1,
+    "state": "ACTIVE",
+    "salary": 2000000
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

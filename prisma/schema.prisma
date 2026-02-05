@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//Enums definitions
+
+enum bookState {
+  AVAILABLE
+  BORROWED
+  LOST
+}
+
+enum stateUser {
+  ACTIVE
+  DISABLE
+}
+
+//Tables definitions
+
+model User {
+  id  Int  @id @default(autoincrement())
+  name  String
+  lastName  String
+  state stateUser @default(ACTIVE)
+  rolId  Int
+  email String @unique
+  sectionId Int
+  salary Int
+  refreshToken String?
+  section Section @relation(fields: [sectionId], references: [id])
+  rol Rol @relation(fields: [rolId], references: [id])
+  password String
+  borrowed Borrowed[]
+}
+
+model Section {
+  id Int @id @default(autoincrement())
+  name String @unique
+  description String?
+  users User[]
+}
+
+model Rol {
+  id Int @id @default(autoincrement())
+  name String @unique
+  description String?
+  users User[]
+}
+
+model Book {
+  id Int @id @default(autoincrement())
+  title String
+  state bookState @default(AVAILABLE)
+  genres Genre[]
+  borrowed Borrowed[]
+  author Author[]
+}
+
+model Genre {
+  id  Int @id @default(autoincrement())
+  name  String @unique
+  books Book[]
+}
+
+model Author {
+  id  Int @id @default(autoincrement())
+  name  String
+  lastName  String?
+  books Book[]
+}
+
+model Borrowed {
+  id Int @id @default(autoincrement())
+  userId Int
+  bookId Int
+  dateOfBorrowed DateTime @default(now())
+  dateOfReturned DateTime?
+  user User @relation(fields: [userId], references: [id])
+  book Book @relation(fields: [bookId], references: [id])
+
+  @@index([userId])
+  @@index([bookId])
+}
