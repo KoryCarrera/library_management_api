@@ -1,1 +1,0 @@
-{"version":3,"file":"bookRepository.js","sourceRoot":"","sources":["../../../src/repositories/bookRepository.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,cAAc,EAAE,MAAM,qBAAqB,CAAA;AAEpD,MAAM,OAAO,cAAe,SAAQ,cAAoB;IAEpD,YAAY,UAAwB;QAEhC,KAAK,CAAC,UAAU,EAAE,UAAU,CAAC,OAAO,CAAC,CAAA;IACzC,CAAC;CACJ"}

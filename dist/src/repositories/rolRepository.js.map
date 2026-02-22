@@ -1,1 +1,0 @@
-{"version":3,"file":"rolRepository.js","sourceRoot":"","sources":["../../../src/repositories/rolRepository.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,cAAc,EAAE,MAAM,qBAAqB,CAAA;AAEpD,MAAM,OAAO,aAAc,SAAQ,cAAmB;IAElD,YAAa,UAAwB;QAEjC,KAAK,CAAC,UAAU,EAAE,UAAU,CAAC,GAAG,CAAC,CAAA;IACrC,CAAC;CACJ"}
