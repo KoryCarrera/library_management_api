@@ -26,12 +26,13 @@ export class AuthController {
                     success: false,
                     data: "Credenciales Invalidas!"
                 })
+                return;
             }
 
             res.status(200).json({
                 success: true,
                 data: responseLogin
-            })
+            });
 
         } catch (err: any) {
             res.status(401).json({
